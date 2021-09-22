@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "task-asp",
+      "appliesTo": "asp.net mvc proje2/",
+      "type": "launch"
+    }
+  ]
+}

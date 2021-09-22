@@ -1,0 +1,106 @@
+﻿@model asp.net_mvc_proje2.Models.FormModel
+@{
+    ViewBag.Title = "Contact";
+}
+
+<div class="jumbotron">
+    <h1>EEG-EPI - İLETİŞİM</h1>
+    <address>
+        <p>
+            <b>Telefon:</b> 05 555 5555 <br />
+            <b>Adres:</b> Doğu Mah. Aydınlı Yolu Cad. Yüksel Sok. No 27 Pendik / İSTANBUL
+        </p>
+    </address>
+</div>
+
+<br />
+<div class="container">
+    @using (Html.BeginForm("Contact", "Home", FormMethod.Post, new { @class = "well form-horizontal" }))
+    {
+    <fieldset>
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <legend>EEG-EPI - İletişim Formu</legend>
+
+        <div class"form-group">
+            <label class="col-md-4 control-label">Adı Soyadı</label>
+            <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    @Html.TextBoxFor(model => model.AdiSoyadi, new { @class = "form-control", placeholder = "Adınız Soyadınız" })
+                </div>
+                @Html.ValidationMessageFor(model => model.AdiSoyadi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <br />
+        <br />
+        <br />
+
+        <div class"form-group">
+            <label class="col-md-4 control-label">E-Posta</label>
+            <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                    @Html.TextBoxFor(model => model.Eposta, new { @class = "form-control", placeholder = "E-Posta" })
+                </div>
+                @Html.ValidationMessageFor(model => model.Eposta, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <br />
+        <br />
+        <br />
+
+        <div class"form-group">
+            <label class="col-md-4 control-label">Telefon</label>
+            <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+                    @Html.TextBoxFor(model => model.Telefon, new { @class = "form-control", placeholder = "Telefon" })
+                </div>
+                @Html.ValidationMessageFor(model => model.Telefon, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <br />
+        <br />
+        <br />
+
+        <div class"form-group">
+            <label class="col-md-4 control-label">Mesaj</label>
+            <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                    @Html.TextAreaFor(model => model.Mesaj, new { @class = "form-control", placeholder = "Mesajınız", rows = "2" })
+                </div>
+                @Html.ValidationMessageFor(model => model.Mesaj, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <br />
+        <br />
+
+        @if (TempData["Basarili"] != null)
+        {
+    <br />
+    <br />
+
+       <div class="alert alert-success" role="alert">
+          Gönderildi <i class="glyphicon glyphicon-thumbs-up"></i>@TempData["Basarili"]
+       </div>}
+
+        <br />
+        <br />
+
+        <div class"form-group">
+            <label class="col-md-4 control-label"></label>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-warning">Gönder <span class="glyphicon glyphicon-send"></span></button>
+            </div>
+        </div>
+
+    </fieldset>
+            }
+</div>
